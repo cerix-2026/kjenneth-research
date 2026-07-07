@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Kjenneth LeClaire — Research conversations with medspa & aesthetic clinic owners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Wistia player (web component) -->
+<script src="https://fast.wistia.com/player.js" async></script>
+<script src="https://fast.wistia.com/embed/g8kuff2a99.js" async type="module"></script>
+<style>
+  wistia-player[media-id='g8kuff2a99']:not(:defined) {
+    background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/g8kuff2a99/swatch');
+    display: block; filter: blur(5px); padding-top: 56.25%;
+  }
+  wistia-player { display: block; width: 100%; height: 100%; }
+</style>
+<style>
+  :root {
+    --bg: #FBFBFD;
+    --bg-2: #F5F5F7;
+    --card: #FFFFFF;
+    --ink: #1D1D1F;
+    --mute: #6E6E73;
+    --dark: #000000;
+    --dark-2: #101012;
+    --mute-d: #A1A1A6;
+    --hair: rgba(0,0,0,0.08);
+    --hair-d: rgba(255,255,255,0.12);
+    --gold-1: #D4B483;
+    --gold-2: #9A7443;
+    --body: 'Manrope', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --shadow-soft: 0 4px 24px rgba(0,0,0,0.06);
+    --shadow-lift: 0 24px 60px -12px rgba(0,0,0,0.14);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+  ::selection { background: rgba(212,180,131,.35); }
+  .container { max-width: 1400px; margin: 0 auto; padding: 0 44px; }
+  @media (max-width: 800px) { .container { padding: 0 24px; } }
+  .grad { background: linear-gradient(100deg, var(--gold-1), var(--gold-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(251,251,253,0.72);
+    backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid transparent; transition: border-color .3s;
+  }
+  nav.scrolled { border-bottom-color: var(--hair); }
+  #progress { position: absolute; bottom: -1px; left: 0; height: 1.5px; width: 0%; background: linear-gradient(90deg, var(--gold-1), var(--gold-2)); transition: width .1s linear; }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 18px 44px; max-width: 1400px; margin: 0 auto; }
+  .logo { font-weight: 800; font-size: 17px; letter-spacing: -0.02em; color: inherit; text-decoration: none; }
+  .logo .dot { background: linear-gradient(100deg, var(--gold-1), var(--gold-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .nav-links { display: flex; gap: 34px; }
+  .nav-links a { color: var(--mute); text-decoration: none; font-size: 13.5px; font-weight: 600; transition: color .2s; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    position: relative; color: #fff; text-decoration: none;
+    padding: 10px 20px; border-radius: 100px; font-size: 13.5px; font-weight: 700;
+    background: var(--ink);
+    transition: transform .3s var(--ease);
+  }
+  .nav-cta::before {
+    content: ''; position: absolute; inset: 0; border-radius: 100px;
+    background: linear-gradient(120deg, var(--gold-1), var(--gold-2));
+    opacity: 0; transition: opacity .45s var(--ease);
+  }
+  .nav-cta > span { position: relative; z-index: 1; }
+  .nav-cta:hover { transform: scale(1.04); }
+  .nav-cta:hover::before { opacity: 1; }
+  @media (max-width: 1000px) { .nav-links { display: none; } .nav-inner { padding: 14px 24px; } }
+
+  /* ---------- REVEAL ---------- */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+  .reveal.in { opacity: 1; transform: none; }
+  .reveal-delay-1 { transition-delay: .12s; }
+  .reveal-delay-2 { transition-delay: .24s; }
+  .reveal-delay-3 { transition-delay: .36s; }
+
+  /* ---------- TYPE ---------- */
+  section { padding: 130px 0; }
+  .label-row { font-size: 13px; font-weight: 700; letter-spacing: .02em; margin-bottom: 16px; background: linear-gradient(100deg, var(--gold-1), var(--gold-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  h2 { font-weight: 800; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.06; letter-spacing: -0.03em; }
+  .section-sub { margin-top: 18px; font-size: 18px; line-height: 1.6; color: var(--mute); max-width: 680px; font-weight: 500; }
+  .sec-d { background: var(--dark); color: #F5F5F7; position: relative; }
+  .sec-d .section-sub { color: var(--mute-d); }
+  .sec-g { background: var(--bg-2); }
+  .center { text-align: center; }
+  .center .section-sub { margin-left: auto; margin-right: auto; }
+
+  /* ---------- HERO ---------- */
+  .hero { padding: 210px 0 100px; position: relative; }
+  .hero::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(720px 480px at 78% 20%, rgba(212,180,131,0.14), transparent 65%);
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.12fr 0.88fr; gap: 70px; align-items: center; position: relative; }
+  @media (max-width: 1000px) { .hero-grid { grid-template-columns: 1fr; gap: 52px; } }
+  .kicker { display: inline-flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 700; color: var(--mute); background: #fff; border: 1px solid var(--hair); padding: 9px 16px; border-radius: 100px; box-shadow: var(--shadow-soft); margin-bottom: 30px; }
+  .kicker .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--gold-2); animation: pulse 2.4s infinite; }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(154,116,67,.35);} 50% { box-shadow: 0 0 0 6px rgba(154,116,67,0);} }
+  h1 { font-weight: 800; font-size: clamp(40px, 5vw, 66px); line-height: 1.06; letter-spacing: -0.035em; }
+  h1 .swap-wrap { display: inline-block; }
+  h1 .swap { display: inline-block; background: linear-gradient(100deg, var(--gold-1), var(--gold-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .swap.out { animation: wordOut .35s var(--ease) forwards; }
+  .swap.inn { animation: wordIn .5s var(--ease); }
+  @keyframes wordOut { to { opacity: 0; transform: translateY(-14px); filter: blur(4px); } }
+  @keyframes wordIn { from { opacity: 0; transform: translateY(16px); filter: blur(4px); } }
+  .hero-sub { margin-top: 38px; font-size: 19px; line-height: 1.62; color: var(--mute); max-width: 560px; font-weight: 500; }
+  .hero-sub strong { color: var(--ink); font-weight: 700; }
+  .hero-ctas { margin-top: 38px; display: flex; gap: 22px; flex-wrap: wrap; align-items: center; }
+  .cta-main {
+    position: relative; display: inline-flex; align-items: center; gap: 10px;
+    color: #fff; text-decoration: none;
+    padding: 17px 30px; border-radius: 100px; font-weight: 700; font-size: 16px;
+    background: var(--ink);
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,.35);
+  }
+  .cta-main::before {
+    content: ''; position: absolute; inset: 0; border-radius: 100px;
+    background: linear-gradient(120deg, var(--gold-1), var(--gold-2));
+    opacity: 0; transition: opacity .5s var(--ease);
+  }
+  .cta-main > span { position: relative; z-index: 1; }
+  .cta-main:hover { transform: scale(1.03); box-shadow: 0 16px 44px -12px rgba(154,116,67,.45); }
+  .cta-main:hover::before { opacity: 1; }
+  .cta-ghost { color: var(--ink); font-weight: 700; text-decoration: none; font-size: 16px; display: inline-flex; align-items: center; gap: 6px; }
+  .cta-ghost .chev { background: linear-gradient(100deg, var(--gold-1), var(--gold-2)); -webkit-background-clip: text; background-clip: text; color: transparent; transition: transform .3s var(--ease); }
+  .cta-ghost:hover .chev { transform: translateX(4px); }
+  .hero-proof { margin-top: 52px; display: flex; gap: 44px; flex-wrap: wrap; padding-top: 26px; border-top: 1px solid var(--hair); }
+  .hero-proof .item .label { font-size: 12px; font-weight: 700; color: var(--mute); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .06em; }
+  .hero-proof .item .value { font-weight: 700; font-size: 15px; }
+
+  .hero-visual { position: relative; }
+  .hero-photo { border-radius: 30px; overflow: hidden; aspect-ratio: 4/5; box-shadow: var(--shadow-lift); }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.01); }
+  .float-card {
+    position: absolute; background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.6);
+    padding: 15px 20px; border-radius: 18px; font-size: 13px; line-height: 1.4; color: var(--mute); font-weight: 600;
+    box-shadow: 0 14px 40px -12px rgba(0,0,0,.18);
+    animation: float 5.5s ease-in-out infinite;
+  }
+  .float-card strong { display: block; font-size: 19px; font-weight: 800; color: var(--ink); letter-spacing: -0.02em; }
+  .fc-1 { left: -30px; top: 13%; animation-delay: .7s; }
+  .fc-2 { right: -22px; bottom: 11%; }
+  @keyframes float { 0%,100% { transform: translateY(0);} 50% { transform: translateY(-9px);} }
+  @media (max-width: 1000px) { .fc-1 { left: 8px; } .fc-2 { right: 8px; } }
+
+  /* ---------- CREDENTIAL STRIP ---------- */
+  .strip { border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); background: var(--bg-2); padding: 16px 0; overflow: hidden; }
+  .strip-track { display: flex; gap: 64px; width: max-content; animation: scroll 34s linear infinite; }
+  .strip span { font-size: 13.5px; font-weight: 700; letter-spacing: .04em; color: var(--mute); display: flex; align-items: center; gap: 64px; white-space: nowrap; }
+  .strip b { background: linear-gradient(100deg, var(--gold-1), var(--gold-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+
+  /* ---------- STATS (DARK) ---------- */
+  .sec-d::before { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(640px 400px at 22% 0%, rgba(212,180,131,0.10), transparent 60%); }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 56px; position: relative; }
+  @media (max-width: 900px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  .stat { background: var(--dark-2); border: 1px solid var(--hair-d); border-radius: 24px; padding: 32px 28px; transition: transform .4s var(--ease); }
+  .stat:hover { transform: translateY(-5px); }
+  .stat .num { font-weight: 800; font-size: 48px; letter-spacing: -0.03em; background: linear-gradient(100deg, var(--gold-1), var(--gold-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat .unit { font-size: 15px; margin-left: 5px; font-weight: 700; color: #F5F5F7; }
+  .stat .desc { margin-top: 8px; font-size: 13px; color: var(--mute-d); line-height: 1.55; font-weight: 500; }
+
+  /* ---------- FOR YOU (LIGHT GRAY) ---------- */
+  .for-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; margin-top: 60px; }
+  .fcard {
+    grid-column: span 3;
+    border-radius: 24px; padding: 34px 30px;
+    background: var(--card); box-shadow: var(--shadow-soft);
+    transition: transform .45s var(--ease), box-shadow .45s var(--ease);
+    display: flex; flex-direction: column; gap: 16px; text-decoration: none; color: inherit;
+  }
+  .fcard:hover { transform: translateY(-6px); box-shadow: var(--shadow-lift); }
+  .fcard .check {
+    width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+    display: grid; place-items: center; color: #fff; font-size: 15px; font-weight: 800;
+  }
+  .fcard p { font-size: 15px; line-height: 1.55; font-weight: 600; color: var(--ink); }
+  .fcard.cta-card { background: var(--dark); color: #F5F5F7; position: relative; overflow: hidden; justify-content: space-between; }
+  .fcard.cta-card::after { content: ''; position: absolute; top: -90px; right: -90px; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle, rgba(212,180,131,.25), transparent 70%); }
+  .fcard.cta-card h3 { font-weight: 800; font-size: 22px; letter-spacing: -0.02em; }
+  .fcard.cta-card .go { font-weight: 700; font-size: 14.5px; color: var(--gold-1); display: flex; align-items: center; gap: 7px; }
+  .fcard.cta-card .go .arr { transition: transform .35s var(--ease); }
+  .fcard.cta-card:hover .go .arr { transform: translateX(5px); }
+  @media (max-width: 1100px) { .fcard { grid-column: span 4; } }
+  @media (max-width: 900px) { .fcard { grid-column: span 6; } }
+  @media (max-width: 640px) { .fcard { grid-column: span 12; } }
+
+  /* ---------- MASTERY / CHAOS FIELD (WHITE) ---------- */
+  .chaos-field { position: relative; height: 780px; margin-top: 30px; }
+  .ring { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); border: 1px dashed var(--hair); border-radius: 50%; }
+  .r1 { width: 400px; height: 400px; }
+  .r2 { width: 640px; height: 640px; }
+  .r3 { width: 900px; height: 900px; }
+  .chip {
+    position: absolute; translate: -50% -50%;
+    background: var(--card); border: 1px solid var(--hair); border-radius: 100px;
+    padding: 10px 18px; font-size: 13.5px; font-weight: 700; color: var(--mute);
+    box-shadow: var(--shadow-soft); white-space: nowrap;
+    animation: float 7s ease-in-out infinite;
+    transition: color .3s, border-color .3s, box-shadow .35s var(--ease);
+    cursor: default; will-change: translate, scale;
+  }
+  .chip:hover {
+    z-index: 3;
+    color: var(--ink); border-color: rgba(154,116,67,.55);
+    box-shadow: var(--shadow-lift);
+  }
+  .chip.t2 { opacity: .68; font-size: 12.5px; padding: 9px 16px; }
+  .chip.t3 { opacity: .42; font-size: 12px; padding: 8px 14px; }
+  .core-wrap {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+    padding: 3px; border-radius: 50%; z-index: 2;
+    background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+    box-shadow: 0 30px 90px -20px rgba(154,116,67,.5);
+  }
+  .core {
+    width: 270px; height: 270px; border-radius: 50%;
+    background: var(--dark); color: #F5F5F7;
+    display: grid; place-items: center; text-align: center; padding: 30px;
+    position: relative;
+  }
+  .core .k { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--mute-d); margin-bottom: 10px; }
+  .core h3 { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; background: linear-gradient(100deg, var(--gold-1), var(--gold-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .core .s { margin-top: 10px; font-size: 12.5px; font-weight: 600; color: var(--mute-d); }
+  .pulse-ring { position: absolute; inset: -20px; border: 1px solid rgba(154,116,67,.45); border-radius: 50%; animation: ringPulse 3.6s var(--ease) infinite; pointer-events: none; }
+  .pulse-ring.p2 { animation-delay: 1.8s; }
+  @keyframes ringPulse { 0% { transform: scale(.86); opacity: .8; } 100% { transform: scale(1.45); opacity: 0; } }
+  @media (max-width: 900px) {
+    .chaos-field { height: auto; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 48px; }
+    .ring { display: none; }
+    .chip { position: static; transform: none; translate: none; animation: none; left: auto !important; top: auto !important; }
+    .core-wrap { position: static; transform: none; flex-basis: 100%; width: fit-content; margin: 0 auto 26px; order: -1; }
+  }
+
+  /* ---------- COVER / QUESTIONS (DARK) ---------- */
+  .method-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 76px; position: relative; }
+  @media (max-width: 1000px) { .method-grid { grid-template-columns: 1fr; gap: 44px; } }
+  .sticky { position: sticky; top: 130px; align-self: start; }
+  .step { display: grid; grid-template-columns: 64px 1fr; gap: 26px; padding: 30px 0; border-bottom: 1px solid var(--hair-d); }
+  .step:last-child { border-bottom: none; }
+  .step .n { font-weight: 800; font-size: 17px; width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: var(--dark-2); border: 1px solid var(--hair-d); color: var(--mute-d); }
+  .step.hl .n { background: linear-gradient(135deg, var(--gold-1), var(--gold-2)); border: none; color: #fff; }
+  .step h4 { font-size: 20px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .step p { font-size: 15px; line-height: 1.65; color: var(--mute-d); font-weight: 500; }
+
+  /* ---------- QUOTE / NOTE ---------- */
+  .quote-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 0; border-radius: 32px; overflow: hidden; box-shadow: var(--shadow-lift); }
+  @media (max-width: 900px) { .quote-grid { grid-template-columns: 1fr; } }
+  .quote-photo img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 420px; }
+  .quote-body { background: var(--dark); color: #F5F5F7; padding: 64px; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+  .quote-body::after { content: ''; position: absolute; top: -90px; right: -90px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, rgba(212,180,131,.2), transparent 70%); }
+  blockquote { font-weight: 700; font-size: clamp(21px, 2.3vw, 28px); line-height: 1.42; letter-spacing: -0.015em; }
+  blockquote .grad { font-weight: 800; }
+  .quote-meta { margin-top: 36px; padding-top: 26px; border-top: 1px solid var(--hair-d); display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; }
+  .quote-meta .sub { color: var(--mute-d); margin-top: 3px; font-weight: 500; }
+
+  /* ---------- VIDEO (DARK CINEMA, CENTERED WIDE) ---------- */
+  .video-bleed {
+    width: min(1200px, calc(100% - 88px));
+    margin: 72px auto 0;
+    border-radius: 28px; overflow: hidden;
+    background: var(--dark-2);
+    border: 1px solid var(--hair-d);
+    box-shadow: 0 50px 120px -40px rgba(0,0,0,.75), 0 0 80px -30px rgba(212,180,131,.25);
+  }
+  @media (max-width: 800px) { .video-bleed { width: calc(100% - 48px); border-radius: 18px; } }
+
+  /* ---------- BOOK ---------- */
+  #book { scroll-margin-top: 90px; }
+  .book-wrap { background: var(--card); border-radius: 30px; padding: 20px; box-shadow: var(--shadow-lift); margin-top: 56px; }
+  .closing { margin-top: 36px; font-size: 15px; font-weight: 600; color: var(--mute); font-style: italic; }
+
+  /* ---------- FOOTER (DARK) ---------- */
+  footer { background: var(--dark); color: #F5F5F7; padding: 96px 0 44px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; }
+  @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr; } }
+  .footer-grid h4 { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--mute-d); margin-bottom: 16px; font-weight: 700; }
+  .footer-grid p, .footer-grid a { font-size: 14.5px; line-height: 1.7; color: #C9C9CE; text-decoration: none; display: block; padding: 2px 0; font-weight: 500; }
+  .footer-grid a:hover { color: #fff; }
+  .footer-bottom { display: flex; justify-content: space-between; margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--hair-d); font-size: 12px; color: var(--mute-d); flex-wrap: wrap; gap: 10px; font-weight: 500; }
+  .footer-address { margin-top: 12px; font-size: 10.5px; color: rgba(245,245,247,.3); font-weight: 500; }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="logo">Kjenneth LeClaire<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="#why">Why this research</a>
+      <a href="#for">Who it's for</a>
+      <a href="#cover">What we'll cover</a>
+      <a href="#watch">Watch</a>
+    </div>
+    <a href="#book" class="nav-cta"><span>Book a Research Call</span></a>
+  </div>
+  <div id="progress"></div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker reveal"><span class="pulse"></span> Research conversations with medspa & aesthetic clinic owners</div>
+      <h1 class="reveal reveal-delay-1">
+        Researching what medspa & aesthetic clinic owners need to build <span class="swap-wrap"><span class="swap" id="swapWord">consistent profits.</span></span>
+      </h1>
+      <p class="hero-sub reveal reveal-delay-2">
+        After 10 years building CeriX, I'm speaking with medspa & aesthetic clinic owners who want <strong>better systems, less daily stress, and more freedom</strong> to focus on growth instead of constant operations.
+      </p>
+      <div class="hero-ctas reveal reveal-delay-3">
+        <a href="#book" class="cta-main"><span>Book a Research Call</span></a>
+        <a href="#why" class="cta-ghost">Why I'm doing this <span class="chev">›</span></a>
+      </div>
+      <div class="hero-proof reveal reveal-delay-3">
+        <div class="item"><div class="label">For</div><div class="value">Medspa & aesthetic clinic owners</div></div>
+        <div class="item"><div class="label">Format</div><div class="value">30 min · video call</div></div>
+        <div class="item"><div class="label">No</div><div class="value">Sales pitch. Ever.</div></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal reveal-delay-2">
+      <div class="hero-photo"><img src="images/kjenneth-portrait.jpg" alt="Kjenneth LeClaire"></div>
+      <div class="float-card fc-1"><strong>18 clinics</strong>built & operated</div>
+      <div class="float-card fc-2"><strong>150k+</strong>treatments delivered</div>
+    </div>
+  </div>
+</header>
+
+<!-- CREDENTIAL STRIP -->
+<div class="strip" aria-hidden="true">
+  <div class="strip-track">
+    <span>Co-founder & CXO · CeriX <b>✦</b> 18 clinics <b>✦</b> 2 private hospitals <b>✦</b> CeriX Institute <b>✦</b> 10+ years <b>✦</b> 150,000+ treatments <b>✦</b> Copenhagen <b>✦</b></span>
+    <span>Co-founder & CXO · CeriX <b>✦</b> 18 clinics <b>✦</b> 2 private hospitals <b>✦</b> CeriX Institute <b>✦</b> 10+ years <b>✦</b> 150,000+ treatments <b>✦</b> Copenhagen <b>✦</b></span>
+  </div>
+</div>
+
+<!-- WHY · DARK -->
+<section class="sec-d" id="why">
+  <div class="container">
+    <div class="label-row reveal">Why I'm doing this research</div>
+    <h2 class="reveal">10 years of building.<br>18 clinics — <span class="grad">one system.</span></h2>
+    <p class="section-sub reveal reveal-delay-1">
+      I've spent the last 10 years building CeriX and learning what it truly takes to build and sustain a successful medspa business. Along the way, I've seen firsthand the operational pressure, staffing challenges, and profit inconsistency that many owners deal with every day.
+    </p>
+    <p class="section-sub reveal reveal-delay-2">
+      Now I'm researching the real challenges medspa & aesthetic clinic owners are facing — what they've already tried, what they need most, and how they talk about their struggles in their own words. So that what comes next is genuinely useful, highly relevant, and grounded in real-world experience.
+    </p>
+    <div class="stats">
+      <div class="stat reveal"><div><span class="num" data-count="18">0</span><span class="unit">clinics</span></div><div class="desc">Cosmetic specialist clinics across Denmark</div></div>
+      <div class="stat reveal reveal-delay-1"><div><span class="num" data-count="2">0</span><span class="unit">hospitals</span></div><div class="desc">Private hospitals · plastic surgery</div></div>
+      <div class="stat reveal reveal-delay-2"><div><span class="num" data-count="150" data-suffix="k+">0</span><span class="unit">treatments</span></div><div class="desc">Performed since we opened in 2016</div></div>
+      <div class="stat reveal reveal-delay-3"><div><span class="num" data-count="10" data-suffix="+">0</span><span class="unit">years</span></div><div class="desc">Operating · approved by Styrelsen for Patientsikkerhed</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR · LIGHT GRAY -->
+<section id="for" class="sec-g">
+  <div class="container">
+    <div class="label-row reveal">Who this is for</div>
+    <h2 class="reveal">This is for you <span class="grad">if…</span></h2>
+    <p class="section-sub reveal reveal-delay-1">This research call is for medspa & aesthetic clinic owners who recognize themselves in one or more of these:</p>
+    <div class="for-grid">
+      <div class="fcard reveal"><div class="check">✓</div><p>You feel overwhelmed by day-to-day operations.</p></div>
+      <div class="fcard reveal"><div class="check">✓</div><p>You're too involved in the business to step back and think strategically.</p></div>
+      <div class="fcard reveal reveal-delay-1"><div class="check">✓</div><p>You want greater consistency in profit and performance.</p></div>
+      <div class="fcard reveal reveal-delay-1"><div class="check">✓</div><p>You're tired of constantly managing staff issues.</p></div>
+      <div class="fcard reveal reveal-delay-2"><div class="check">✓</div><p>You want a better understanding of how your business is performing.</p></div>
+      <div class="fcard reveal reveal-delay-2"><div class="check">✓</div><p>You want more freedom, more clarity, and a business that runs more smoothly.</p></div>
+      <div class="fcard reveal reveal-delay-3"><div class="check">✓</div><p>You want to better understand which KPIs drive profitability.</p></div>
+      <a href="#book" class="fcard cta-card reveal reveal-delay-3">
+        <h3>Sounds like you?</h3>
+        <div class="go">Book a Research Call <span class="arr">→</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MASTERY / CHAOS FIELD · WHITE -->
+<section id="mastery">
+  <div class="container">
+    <div class="center">
+      <div class="label-row reveal">The reality of running a clinic</div>
+      <h2 class="reveal">You're expected to<br>master <span class="grad">all of this.</span></h2>
+      <p class="section-sub reveal reveal-delay-1">
+        KPIs, hiring, marketing, compliance, cash flow… the list never ends. But after 10 years and 18 clinics, I've learned that only a few things truly move the needle — and they live inside one proven method. These research conversations help me sharpen it.
+      </p>
+    </div>
+    <div class="chaos-field reveal reveal-delay-2">
+      <div class="ring r1"></div>
+      <div class="ring r2"></div>
+      <div class="ring r3"></div>
+
+      <span class="chip" style="left:47%; top:21%; animation-duration:6.2s;">Profitability</span>
+      <span class="chip" style="left:61%; top:27%; animation-duration:7.4s; animation-delay:.8s;">KPIs</span>
+      <span class="chip" style="left:67%; top:45%; animation-duration:5.8s; animation-delay:1.6s;">Cash Flow</span>
+      <span class="chip" style="left:62%; top:63%; animation-duration:6.9s; animation-delay:.4s;">Marketing</span>
+      <span class="chip" style="left:39%; top:69%; animation-duration:7.8s; animation-delay:2.1s;">Hiring</span>
+      <span class="chip" style="left:31%; top:53%; animation-duration:6.4s; animation-delay:1.2s;">Leadership</span>
+      <span class="chip" style="left:33%; top:31%; animation-duration:7.1s; animation-delay:2.8s;">Pricing</span>
+      <span class="chip" style="left:48%; top:79%; animation-duration:6.6s; animation-delay:.6s;">Client Retention</span>
+
+      <span class="chip t2" style="left:23%; top:22%; animation-duration:7.6s; animation-delay:1.4s;">Workflow</span>
+      <span class="chip t2" style="left:75%; top:32%; animation-duration:6.1s; animation-delay:.9s;">SOPs</span>
+      <span class="chip t2" style="left:81%; top:55%; animation-duration:7.2s; animation-delay:2.4s;">Patient Safety</span>
+      <span class="chip t2" style="left:73%; top:71%; animation-duration:6.8s; animation-delay:.2s;">Automation</span>
+      <span class="chip t2" style="left:63%; top:84%; animation-duration:7.9s; animation-delay:1.8s;">Consultations</span>
+      <span class="chip t2" style="left:26%; top:77%; animation-duration:6.3s; animation-delay:2.6s;">Branding</span>
+      <span class="chip t2" style="left:17%; top:61%; animation-duration:7.5s; animation-delay:.5s;">Compliance</span>
+      <span class="chip t2" style="left:18%; top:39%; animation-duration:6.7s; animation-delay:1.1s;">Team Culture</span>
+      <span class="chip t2" style="left:55%; top:12%; animation-duration:7.3s; animation-delay:2.2s;">Sales</span>
+
+      <span class="chip t3" style="left:35%; top:7%; animation-duration:8.2s; animation-delay:.7s;">Clinic Operations</span>
+      <span class="chip t3" style="left:65%; top:6%; animation-duration:7.7s; animation-delay:1.9s;">Staff Retention</span>
+      <span class="chip t3" style="left:82%; top:14%; animation-duration:6.9s; animation-delay:2.9s;">Exit Strategy</span>
+      <span class="chip t3" style="left:92%; top:28%; animation-duration:8.4s; animation-delay:.3s;">Scaling</span>
+      <span class="chip t3" style="left:93%; top:62%; animation-duration:7.1s; animation-delay:1.5s;">Business Strategy</span>
+      <span class="chip t3" style="left:88%; top:79%; animation-duration:8.1s; animation-delay:2.5s;">CRM</span>
+      <span class="chip t3" style="left:74%; top:92%; animation-duration:6.6s; animation-delay:1s;">Reputation</span>
+      <span class="chip t3" style="left:50%; top:95%; animation-duration:7.8s; animation-delay:.1s;">Customer Experience</span>
+      <span class="chip t3" style="left:28%; top:90%; animation-duration:6.5s; animation-delay:2s;">Memberships</span>
+      <span class="chip t3" style="left:10%; top:71%; animation-duration:8.3s; animation-delay:1.3s;">Lead Generation</span>
+      <span class="chip t3" style="left:5%; top:49%; animation-duration:7s; animation-delay:2.7s;">Social Media</span>
+      <span class="chip t3" style="left:8%; top:29%; animation-duration:7.6s; animation-delay:.4s;">AI</span>
+      <span class="chip t3" style="left:14%; top:12%; animation-duration:6.8s; animation-delay:1.7s;">Growth</span>
+
+      <div class="core-wrap">
+        <div class="core">
+          <div class="pulse-ring"></div>
+          <div class="pulse-ring p2"></div>
+          <div>
+            <div class="k">Only a few things matter</div>
+            <h3>The Proven Method</h3>
+            <div class="s">Tested across 18 clinics</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE'LL COVER · DARK -->
+<section class="sec-d" id="cover">
+  <div class="container method-grid">
+    <div class="sticky">
+      <div class="label-row reveal">What we'll cover</div>
+      <h2 class="reveal">A conversation,<br>not a <span class="grad">pitch.</span></h2>
+      <p class="section-sub reveal reveal-delay-1">
+        This is a short research conversation, not a sales call. You'll have the chance to share your biggest frustrations, talk about what you've already tried, explain what would make your business feel more manageable — and help shape the direction of future support and solutions.
+      </p>
+      <p class="section-sub reveal reveal-delay-2">Your perspective matters, and your feedback will be incredibly valuable.</p>
+    </div>
+    <div>
+      <div class="step reveal"><div class="n">01</div><div><h4>Your biggest frustrations</h4><p>What's hardest about day-to-day operations right now — in your own words.</p></div></div>
+      <div class="step reveal"><div class="n">02</div><div><h4>The weight on your shoulders</h4><p>What feels most painful about relying on yourself for everything.</p></div></div>
+      <div class="step reveal"><div class="n">03</div><div><h4>What you've already tried</h4><p>What you've invested in so far to solve these problems — and how it worked out.</p></div></div>
+      <div class="step hl reveal"><div class="n">04</div><div><h4>What freedom looks like</h4><p>What freedom and success would actually look like for you and your business.</p></div></div>
+      <div class="step reveal"><div class="n">05</div><div><h4>What's still missing</h4><p>The gap between where you are and where you want to be.</p></div></div>
+      <div class="step reveal"><div class="n">06</div><div><h4>What would truly help</h4><p>What kind of solution would genuinely make a difference for you.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- A QUICK NOTE -->
+<section id="note">
+  <div class="container">
+    <div class="quote-grid reveal">
+      <div class="quote-photo"><img src="images/kjenneth-note.jpg" alt="Kjenneth LeClaire"></div>
+      <div class="quote-body">
+        <div class="label-row">A quick note</div>
+        <blockquote>"This is simply a research interview designed to learn from your experience. There is <span class="grad">no pressure, no pitch,</span> and no expectation to buy anything. I'm genuinely looking to speak with medspa & aesthetic clinic owners who are open to sharing honestly."</blockquote>
+        <div class="quote-meta">
+          <div><div>Kjenneth LeClaire</div><div class="sub">Co-founder & CXO, CeriX</div></div>
+          <div style="text-align:right;"><div>Copenhagen</div><div class="sub">Speaking with owners worldwide</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO · DARK FULL-BLEED CINEMA -->
+<section class="sec-d watch-cine" id="watch">
+  <div class="container center">
+    <div class="label-row reveal">Watch · An introduction to CeriX · 2 min</div>
+    <h2 class="reveal">This is what I built the<br>last 10 years — <span class="grad">CeriX.</span></h2>
+    <p class="section-sub reveal reveal-delay-1">Two minutes on what CeriX is — and what a decade of building looks like.</p>
+  </div>
+  <div class="video-bleed reveal reveal-delay-2">
+    <wistia-player media-id="g8kuff2a99" aspect="1.7777777777777777" big-play-button="true" small-play-button="false" playbar="false" volume-control="false" fullscreen-button="false" settings-control="false" playback-rate-control="false" quality-control="false" controls-visible-on-load="false"></wistia-player>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section id="book">
+  <div class="container center">
+    <div class="label-row reveal">Ready to share your experience?</div>
+    <h2 class="reveal">Pick a time that<br>works for <span class="grad">you.</span></h2>
+    <p class="section-sub reveal reveal-delay-1">
+      If you're a medspa or aesthetic clinic owner and you're open to a thoughtful research conversation, I'd love to hear from you. Choose a time below and book directly into my calendar — you'll get a Google Meet link by email immediately.
+    </p>
+    <div class="book-wrap reveal reveal-delay-2">
+      <iframe src="https://api.leadconnectorhq.com/widget/booking/XZ2UvrRkKhDkul7LhsyR"
+              style="width:100%;min-width:320px;min-height:700px;border:none;overflow:hidden;"
+              scrolling="no"
+              id="XZ2UvrRkKhDkul7LhsyR_1783334564213"></iframe>
+    </div>
+    <p class="closing reveal">Your insight could help shape something meaningful for medspa & aesthetic clinic owners like you.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Kjenneth LeClaire</h4>
+        <p>Co-founder & CXO at CeriX — Denmark's largest cosmetic clinic chain. Currently researching what medspa & aesthetic clinic owners need to build more consistent, sustainable businesses.</p>
+      </div>
+      <div>
+        <h4>CeriX</h4>
+        <a href="https://cerix.dk" target="_blank" rel="noopener">cerix.dk</a>
+        <a href="https://cerix.dk/om-cerix/om-os/" target="_blank" rel="noopener">About CeriX</a>
+        <a href="https://www.cerix-institute.dk/" target="_blank" rel="noopener">CeriX Institute</a>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <a href="https://www.linkedin.com/in/kjenneth-leclaire-rosenblum-18150321/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#book">Book a Research Call</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Kjenneth LeClaire · Research phase</span>
+      <span>Listening · 2026</span>
+    </div>
+    <div class="footer-address">Købmagergade 24 · 1150 København K</div>
+  </div>
+</footer>
+
+<script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+<!-- LeadConnector chat widget -->
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a43f71076eb9ed4ac63d4ec" data-source="WEB_USER"></script>
+<script>
+  // Nav + progress
+  const nav = document.getElementById('nav'), bar = document.getElementById('progress');
+  addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', scrollY > 20);
+    const h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = (scrollY / h * 100) + '%';
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Rotating hero word
+  const words = ['consistent profits.', 'better systems.', 'more freedom.', 'sustainable growth.'];
+  let wi = 0; const swap = document.getElementById('swapWord');
+  setInterval(() => {
+    swap.classList.add('out');
+    setTimeout(() => {
+      wi = (wi + 1) % words.length;
+      swap.textContent = words[wi];
+      swap.classList.remove('out'); swap.classList.add('inn');
+      setTimeout(() => swap.classList.remove('inn'), 550);
+    }, 350);
+  }, 2800);
+
+  // Count-up stats
+  const cio = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, target = +el.dataset.count, suf = el.dataset.suffix || '';
+    const t0 = performance.now(), dur = 1400;
+    (function tick(t) {
+      const p = Math.min((t - t0) / dur, 1), ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * ease) + suf;
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+    cio.unobserve(el);
+  }), { threshold: 0.6 });
+  document.querySelectorAll('[data-count]').forEach(el => cio.observe(el));
+
+  // Magnetic chaos field — chips pull toward the cursor with distance falloff
+  const field = document.querySelector('.chaos-field');
+  if (field && matchMedia('(pointer:fine)').matches) {
+    const chips = [...field.querySelectorAll('.chip')].map(el => ({
+      el,
+      px: parseFloat(el.style.left) / 100,
+      py: parseFloat(el.style.top) / 100,
+      base: el.classList.contains('t3') ? .42 : el.classList.contains('t2') ? .68 : 1,
+      x: 0, y: 0, s: 1, o: null, tx: 0, ty: 0, ts: 1, to: 1
+    }));
+    let mx = null, my = null, raf = null;
+
+    function frame() {
+      const r = field.getBoundingClientRect();
+      let alive = false;
+      for (const c of chips) {
+        if (mx === null) { c.tx = 0; c.ty = 0; c.ts = 1; c.to = c.base; }
+        else {
+          const cx = c.px * r.width, cy = c.py * r.height;
+          const dx = mx - cx, dy = my - cy, d = Math.hypot(dx, dy) || 1;
+          const near = Math.max(0, 1 - d / 340);          // stærk lokal tiltrækning
+          const far  = Math.max(0, 1 - d / 1200);         // svag global "hiven"
+          const k = near * near * .24 + far * .055;
+          c.tx = dx * k; c.ty = dy * k;
+          c.ts = 1 + near * .34;
+          c.to = Math.min(1, c.base + near * (1 - c.base) * 1.6);
+        }
+        c.x += (c.tx - c.x) * .13; c.y += (c.ty - c.y) * .13;
+        c.s += (c.ts - c.s) * .13;
+        c.o = c.o === null ? c.base : c.o + (c.to - c.o) * .13;
+        c.el.style.translate = `calc(-50% + ${c.x.toFixed(2)}px) calc(-50% + ${c.y.toFixed(2)}px)`;
+        c.el.style.scale = c.s.toFixed(3);
+        c.el.style.opacity = c.o.toFixed(3);
+        if (Math.abs(c.tx - c.x) > .15 || Math.abs(c.ts - c.s) > .003) alive = true;
+      }
+      raf = (alive || mx !== null) ? requestAnimationFrame(frame) : null;
+    }
+    field.addEventListener('mousemove', e => {
+      if (innerWidth <= 900) return;
+      const r = field.getBoundingClientRect();
+      mx = e.clientX - r.left; my = e.clientY - r.top;
+      if (!raf) raf = requestAnimationFrame(frame);
+    });
+    field.addEventListener('mouseleave', () => {
+      mx = null; my = null;
+      if (!raf) raf = requestAnimationFrame(frame);
+    });
+  }
+</script>
+
+</body>
+</html>
