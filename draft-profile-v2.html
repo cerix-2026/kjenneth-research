@@ -12,9 +12,14 @@
 <!-- Wistia player (web component) -->
 <script src="https://fast.wistia.com/player.js" async></script>
 <script src="https://fast.wistia.com/embed/g8kuff2a99.js" async type="module"></script>
+<script src="https://fast.wistia.com/embed/5wzignsz5q.js" async type="module"></script>
 <style>
   wistia-player[media-id='g8kuff2a99']:not(:defined) {
     background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/g8kuff2a99/swatch');
+    display: block; filter: blur(5px); padding-top: 56.25%;
+  }
+  wistia-player[media-id='5wzignsz5q']:not(:defined) {
+    background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/5wzignsz5q/swatch');
     display: block; filter: blur(5px); padding-top: 56.25%;
   }
   wistia-player { display: block; width: 100%; height: 100%; }
@@ -278,6 +283,7 @@
     box-shadow: 0 50px 120px -40px rgba(0,0,0,.75), 0 0 80px -30px rgba(212,180,131,.25);
   }
   @media (max-width: 800px) { .video-bleed { width: calc(100% - 48px); border-radius: 18px; } }
+  .video-bleed.light { border-color: var(--hair); box-shadow: var(--shadow-lift); }
 
   /* ---------- BOOK ---------- */
   #book { scroll-margin-top: 90px; }
@@ -501,6 +507,18 @@
   </div>
   <div class="video-bleed reveal reveal-delay-2">
     <wistia-player media-id="g8kuff2a99" aspect="1.7777777777777777" big-play-button="true" small-play-button="false" playbar="false" volume-control="false" fullscreen-button="false" settings-control="false" playback-rate-control="false" quality-control="false" controls-visible-on-load="false"></wistia-player>
+  </div>
+</section>
+
+<!-- FLAGSHIP CLINIC · LIGHT GRAY -->
+<section class="sec-g" id="flagship">
+  <div class="container center">
+    <div class="label-row reveal">Watch · Inside our flagship clinic · 2 min</div>
+    <h2 class="reveal">My 1,600 m² <span class="grad">flagship clinic.</span></h2>
+    <p class="section-sub reveal reveal-delay-1">Step inside — 1,600 square meters in central Copenhagen.</p>
+  </div>
+  <div class="video-bleed light reveal reveal-delay-2">
+    <wistia-player media-id="5wzignsz5q" aspect="1.7777777777777777" big-play-button="true" small-play-button="false" playbar="false" volume-control="false" fullscreen-button="false" settings-control="false" playback-rate-control="false" quality-control="false" controls-visible-on-load="false"></wistia-player>
   </div>
 </section>
 
