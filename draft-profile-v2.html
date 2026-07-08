@@ -178,6 +178,40 @@
   .stat .unit { font-size: 15px; margin-left: 5px; font-weight: 700; color: #F5F5F7; }
   .stat .desc { margin-top: 8px; font-size: 13px; color: var(--mute-d); line-height: 1.55; font-weight: 500; }
 
+  /* ---------- WHY GRID + ORBIT (Attract → Deliver → Retain) ---------- */
+  .why-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 60px; align-items: center; position: relative; }
+  @media (max-width: 1000px) { .why-grid { grid-template-columns: 1fr; gap: 70px; } }
+  .orbit { --R: 185px; position: relative; width: 440px; height: 440px; margin: 0 auto; }
+  @media (max-width: 500px) { .orbit { --R: 135px; width: 330px; height: 330px; } }
+  .orbit .oring { position: absolute; inset: 35px; border: 1.5px dashed rgba(212,180,131,.35); border-radius: 50%; }
+  .orbit .spin { position: absolute; inset: 0; animation: orbitSpin 28s linear infinite; }
+  .orbit .counter { width: 100%; height: 100%; animation: orbitSpinRev 28s linear infinite; }
+  .orbit .unrot { width: 100%; height: 100%; transform: rotate(calc(-1 * var(--a))); }
+  @keyframes orbitSpin { to { transform: rotate(360deg); } }
+  @keyframes orbitSpinRev { to { transform: rotate(-360deg); } }
+  .node-pos {
+    position: absolute; left: 50%; top: 50%;
+    width: 98px; height: 98px; margin: -49px 0 0 -49px;
+    transform: rotate(var(--a)) translateY(calc(-1 * var(--R)));
+  }
+  .node-badge { width: 100%; height: 100%; border-radius: 50%; padding: 2px; background: linear-gradient(135deg, var(--gold-1), var(--gold-2)); box-shadow: 0 14px 40px -14px rgba(212,180,131,.45); }
+  .node-badge > div { width: 100%; height: 100%; border-radius: 50%; background: var(--dark-2); display: grid; place-items: center; font-size: 13.5px; font-weight: 800; color: #F5F5F7; letter-spacing: .02em; }
+  .arr-pos {
+    position: absolute; left: 50%; top: 50%;
+    width: 18px; height: 18px; margin: -9px 0 0 -9px;
+    transform: rotate(var(--a)) translateY(calc(-1 * var(--R)));
+    display: grid; place-items: center;
+    color: var(--gold-1); font-size: 17px; font-weight: 800; opacity: .8;
+  }
+  .orbit-core {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+    width: 170px; height: 170px; border-radius: 50%; padding: 2px;
+    background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+    box-shadow: 0 0 80px -12px rgba(212,180,131,.4);
+  }
+  .orbit-core > div { width: 100%; height: 100%; border-radius: 50%; background: var(--dark); display: grid; place-items: center; text-align: center; }
+  .orbit-core .t { font-weight: 800; font-size: 20px; letter-spacing: -0.01em; line-height: 1.22; background: linear-gradient(100deg, var(--gold-1), var(--gold-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
   /* ---------- FOR YOU (LIGHT GRAY) ---------- */
   .for-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; margin-top: 60px; }
   .fcard {
@@ -357,14 +391,30 @@
 <!-- WHY · DARK -->
 <section class="sec-d" id="why">
   <div class="container">
-    <div class="label-row reveal">Why I'm doing this research</div>
-    <h2 class="reveal">10 years of building.<br>18 clinics — <span class="grad">one system.</span></h2>
-    <p class="section-sub reveal reveal-delay-1">
-      I've spent the last 10 years building CeriX and learning what it truly takes to build and sustain a successful medspa business. Along the way, I've seen firsthand the operational pressure, staffing challenges, and profit inconsistency that many owners deal with every day.
-    </p>
-    <p class="section-sub reveal reveal-delay-2">
-      Now I'm researching the real challenges medspa & aesthetic clinic owners are facing — what they've already tried, what they need most, and how they talk about their struggles in their own words. So that what comes next is genuinely useful, highly relevant, and grounded in real-world experience.
-    </p>
+    <div class="why-grid">
+      <div>
+        <div class="label-row reveal">Why I'm doing this research</div>
+        <h2 class="reveal">10 years of building.<br>18 clinics — <span class="grad">one system.</span></h2>
+        <p class="section-sub reveal reveal-delay-1">
+          I've spent the last 10 years building CeriX and learning what it truly takes to build and sustain a successful medspa business. Along the way, I've seen firsthand the operational pressure, staffing challenges, and profit inconsistency that many owners deal with every day.
+        </p>
+        <p class="section-sub reveal reveal-delay-2">
+          Now I'm researching the real challenges medspa & aesthetic clinic owners are facing — what they've already tried, what they need most, and how they talk about their struggles in their own words. So that what comes next is genuinely useful, highly relevant, and grounded in real-world experience.
+        </p>
+      </div>
+      <div class="orbit reveal reveal-delay-2" aria-label="Attract, Deliver, Retain — the Profit System">
+        <div class="oring"></div>
+        <div class="spin">
+          <div class="node-pos" style="--a: 0deg"><div class="counter"><div class="unrot"><div class="node-badge"><div>Attract</div></div></div></div></div>
+          <div class="node-pos" style="--a: 120deg"><div class="counter"><div class="unrot"><div class="node-badge"><div>Deliver</div></div></div></div></div>
+          <div class="node-pos" style="--a: 240deg"><div class="counter"><div class="unrot"><div class="node-badge"><div>Retain</div></div></div></div></div>
+          <div class="arr-pos" style="--a: 60deg">›</div>
+          <div class="arr-pos" style="--a: 180deg">›</div>
+          <div class="arr-pos" style="--a: 300deg">›</div>
+        </div>
+        <div class="orbit-core"><div><div class="t">Profit<br>System</div></div></div>
+      </div>
+    </div>
     <div class="stats">
       <div class="stat reveal"><div><span class="num" data-count="18">0</span><span class="unit">clinics</span></div><div class="desc">Cosmetic specialist clinics across Denmark</div></div>
       <div class="stat reveal reveal-delay-1"><div><span class="num" data-count="2">0</span><span class="unit">hospitals</span></div><div class="desc">Private hospitals · plastic surgery</div></div>
